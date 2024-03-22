@@ -16,7 +16,7 @@ def valid_matrix_file(A):
 
 def valid_vector_file(b, n):
     if not b:
-        print("O arquivo 'matrix.txt' está vazio.")
+        print("O arquivo 'b.txt' está vazio.")
         raise SystemExit
     elif len(b) != n: # Verifica se o vetor tem o mesmo número de linhas da matriz
         print("Vetor inválido. O vetor deve ter o mesmo número de linhas da matriz.")
@@ -52,14 +52,22 @@ def read_vector_file(path):
 def main():
     matrix_path = 'matrix.txt'
     vector_path = 'b.txt'
-    
+
+    # Lê a matriz do arquivo e valida sua estrutura
     A = read_matrix_file(matrix_path)
     A = valid_matrix_file(A)
+
+    # Lê o vetor do arquivo e valida sua estrutura
     b = read_vector_file(vector_path)
     b = valid_vector_file(b, len(A))
 
+    # Executa a fatoração LU e retorna as duas matrizes triangulares
     L, U = lu_decomposition(A)
+
+    # Resolve o sistema triangular inferior Ly = b
     y = forward_substitution(L, b)
+
+    # Resolve o sistema triangular superior Ux = y
     x = backward_substitution(U, y)
 
     print("Solução:", x)

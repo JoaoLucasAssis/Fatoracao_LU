@@ -7,15 +7,15 @@ def forward_substitution(L, b):
     Retorna:
     y: Solução do sistema
     """
-    n = L.shape[0]
-    y = np.zeros(n) # Cria um array de zeros de tamanho n
-
-    for i in range(n):
+    n = L.shape[0]  # Obtém o tamanho da matriz L
+    y = np.zeros(n)  # Cria um array de zeros de tamanho n
+    
+    for i in range(n):  # Loop pelas linhas da matriz L
         s = 0
-        for j in range(i):
-            s += L[i, j] * y[j]
-        y[i] = (b[i] - s) / L[i, i]
-        
+        for j in range(i):  # Loop pelas colunas abaixo da diagonal
+            s += L[i, j] * y[j]  # Calcula a soma dos termos anteriores
+        y[i] = (b[i] - s)  # Calcula o valor de y[i]
+    
     return y
 
 def backward_substitution(U, y):
@@ -25,13 +25,13 @@ def backward_substitution(U, y):
     Retorna:
     x: Solução do sistema
     """
-    n = U.shape[0]
-    x = np.zeros(n) # Cria um array de zeros de tamanho n
-
-    for i in reversed(range(n)):
+    n = U.shape[0]  # Obtém o tamanho da matriz U
+    x = np.zeros(n)  # Cria um array de zeros de tamanho n
+    
+    for i in reversed(range(n)):  # Loop pelas linhas da matriz U de trás para frente
         s = 0
-        for j in range(i+1, n):
-            s += U[i, j] * x[j]
-        x[i] = (y[i] - s) / U[i, i]
-        
+        for j in range(i+1, n):  # Loop pelas colunas à direita da diagonal
+            s += U[i, j] * x[j]  # Calcula a soma dos termos anteriores
+        x[i] = (y[i] - s) / U[i, i]  # Calcula o valor de x[i]
+    
     return x
