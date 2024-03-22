@@ -28,7 +28,7 @@ Para começar, clone o repositório do projeto em seu ambiente local. Siga a eta
 * Clone o repositório para o seu ambiente local usando o seguinte comando:
 
 ```git
-git clone https://github.com/JoaoLucasAssis/Git_Workflow.git
+git clone https://github.com/JoaoLucasAssis/Fatoracao_LU.git
 ```
 
 > :warning: obs: Certifique-se de ter o git instalado antes de executar o comando no terminal
