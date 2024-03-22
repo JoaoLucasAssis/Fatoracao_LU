@@ -36,7 +36,7 @@ git clone https://github.com/JoaoLucasAssis/Git_Workflow.git
 * Navegue até o diretório onde o repositório foi baixado:
 
 ```git
-cd sorting-algorithms-comparison
+cd FATORACAO_LU
 ```
 
 * Adicione em `matrix.txt` a matriz que você deseja decompor.
